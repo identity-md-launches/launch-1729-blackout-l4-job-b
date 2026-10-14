@@ -1,0 +1,14 @@
+{
+  "kind": "evm_contracts",
+  "contracts": [
+    { "contract": "FeeRouter", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "GridOperator", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "Season", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "FarmEngine", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "Economy", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "Enhancement", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "Civic", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] },
+    { "contract": "Billboards", "constructorArgs": ["0x1b41fc9723df25eec7e91d947072dccc2483285f"] }
+  ],
+  "notes": "BLACKOUT L4 (job B) on Robinhood Chain (4663), v3.18 source (L4 contracts byte-identical to v3.17), solc 0.8.26, optimizer 200, cancun, bytecode_hash none. Eight pinned GameModule contracts in order [0] FeeRouter [1] GridOperator [2] Season [3] FarmEngine [4] Economy [5] Enhancement [6] Civic [7] Billboards; each takes only the recorded L3 GameRegistry 0x1b41fc9723df25eec7e91d947072dccc2483285f (launch 1722), already bound to the L1 SwarmDesk 0x5cb0686a4475d1f8a6c6e5240579080a4a05b609 (launch 1628). No owner argument: authority comes from the registry/Desk; protocol endpoints are compiled in. Creation-code keccak (before args): FeeRouter 0x3b53c8d8..e6af, GridOperator 0x931bdfae..7c74, Season 0xa79fdfbe..2c83, FarmEngine 0x48a9f8dd..be7c, Economy 0x105f9f29..ccc9, Enhancement 0x31242676..ea38, Civic 0xb3e89ec0..0bb2, Billboards 0x3cb8b542..aa60. After this launch the keeper registers roles 0-13 (permissionless), then V4Market 0x3c9599670893546a3def98608259a8e6582790cc bindFeeRouter, EndowmentEscrow 0x11947494c0ba91508eb7409648193818c36521fb forward and RewardPool.fundEndowment, before any oracle answer executes. GAME_CONFIG_HASH 0x11ed7438974e96ecc962201e9c46422c7bf239d725876863fa25a56c734b20d3. Accepted findings, not fixed in source (all modules pinned): d873782c FarmRewards.claim lock-boost re-commit (gated by disabled Civic feature 4, at most 20% of farm weight, no funds move); b61f7912 PackSale.resolve starter flag on Season prizes; plus the accepted items in docs/accepted-v318.md (swarm pack-sale pause bound, exact-input/PriceLimitedBuy/PartialFill swaps, manager float, spot() bounds, fixed oracle signer, future-block randomness, 031c93c4, 339b6b19, 420b1475 and L1 judge items). Project: https://playblackout.xyz"
+}
